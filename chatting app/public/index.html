@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Chat settings">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <div>
+            <h1>Chat Room</h1>
+            <p id="connectionStatus">Connecting...</p>
+          </div>
+        </div>
+
+        <form class="profile-form" id="profileForm">
+          <label>
+            Display name
+            <input id="nameInput" name="name" autocomplete="name" maxlength="36" placeholder="Your name">
+          </label>
+          <label>
+            Room
+            <input id="roomInput" name="room" autocomplete="off" maxlength="40" placeholder="general">
+          </label>
+          <label>
+            Accent
+            <input id="colorInput" name="color" type="color" value="#2563eb">
+          </label>
+        </form>
+
+        <div class="room-list" aria-label="Quick rooms">
+          <button class="room-button" type="button" data-room="general"># general</button>
+          <button class="room-button" type="button" data-room="study"># study</button>
+          <button class="room-button" type="button" data-room="friends"># friends</button>
+        </div>
+      </aside>
+
+      <section class="chat-panel" aria-label="Messages">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Now chatting in</p>
+            <h2 id="roomTitle"># general</h2>
+          </div>
+          <button class="icon-button" id="copyLinkButton" type="button" title="Copy room link" aria-label="Copy room link">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"></path>
+              <path d="M14 11a5 5 0 0 0-7.1 0l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1"></path>
+            </svg>
+          </button>
+        </header>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+
+        <form class="composer" id="messageForm">
+          <input id="messageInput" autocomplete="off" maxlength="700" placeholder="Message this room">
+          <button type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m22 2-7 20-4-9-9-4Z"></path>
+              <path d="M22 2 11 13"></path>
+            </svg>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
